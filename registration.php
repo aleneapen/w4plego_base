@@ -1,9 +1,7 @@
 <?php
 
-use Magento\Framework\Component\ComponentRegistrar;
-
-ComponentRegistrar::register(
-    ComponentRegistrar::MODULE,
+\Magento\Framework\Component\ComponentRegistrar::register(
+    \Magento\Framework\Component\ComponentRegistrar::MODULE,
     'W4PLEGO_CmsUpgrade',
     __DIR__
 );

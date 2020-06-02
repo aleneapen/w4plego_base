@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="EntityCmsPageVirtual" type="W4PLEGO\CmsUpgrade\Model\Entity\AbstractEntity">
+        <arguments>
+            <argument name="generator" xsi:type="object">W4PLEGO\CmsUpgrade\Model\PageGenerator</argument>
+            <argument name="entityType" xsi:type="string">page</argument>
+            <argument name="upgradeFields" xsi:type="array">
+                <item name="0" xsi:type="string">row_id</item>
+                <item name="1" xsi:type="string">page_id</item>
+                <item name="2" xsi:type="string">created_in</item>
+                <item name="3" xsi:type="string">updated_in</item>
+                <item name="4" xsi:type="string">creation_time</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="W4PLEGO\CmsUpgrade\Controller\Adminhtml\Page\Generate">
+        <arguments>
+            <argument name="page" xsi:type="object">EntityCmsPageVirtual</argument>
+            <argument name="context" xsi:type="object">Magento\Backend\App\Action\Context</argument>
+            <argument name="entityLabel" xsi:type="string">page</argument>
+        </arguments>
+    </type>
+    <virtualType name="EntityCmsBlockVirtual" type="W4PLEGO\CmsUpgrade\Model\Cms\AbstractEntity">
+        <arguments>
+            <argument name="generator" xsi:type="object">W4PLEGO\CmsUpgrade\Model\CmsGenerator</argument>
+            <argument name="entityType" xsi:type="string">block</argument>
+            <argument name="upgradeFields" xsi:type="array">
+                <item name="0" xsi:type="string">title</item>
+                <item name="1" xsi:type="string">identifier</item>
+                <item name="2" xsi:type="string">content</item>
+                <item name="3" xsi:type="string">is_active</item>
+                <item name="4" xsi:type="string">stores</item>
+                <item name="5" xsi:type="string">store_id</item>
+                <item name="6" xsi:type="string">update_time</item>
+                <item name="7" xsi:type="string">background_image</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="W4PLEGO\CmsUpgrade\Controller\Adminhtml\Block\Generate">
+        <arguments>
+            <argument name="block" xsi:type="object">EntityCmsBlockVirtual</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Config\Block\System\Config\Form\Fieldset">
+        <plugin name="w4plego_cmsupgrade_config_system_render_plugin"
+                type="W4PLEGO\CmsUpgrade\Plugin\Magento\Config\Block\System\Config\Form\FieldsetPlugin" />
+    </type>
+    <preference for="Magento\Config\Block\System\Config\Edit" type="W4PLEGO\CmsUpgrade\Block\Config\Edit" />
+</config>
