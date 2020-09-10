@@ -52,7 +52,7 @@ class FieldsetPlugin
     protected function drawCheckbox(AbstractElement $element)
     {
         $result = '';
-        if ($this->_helper->isModuleOutputEnabled()) {
+        if ($this->_helper->isModuleEnabled()) {
             $result =
                 '<div style="float: left;"><input type="checkbox" name="generate[' . $element->getHtmlId(
                 ) . ']"></div>';

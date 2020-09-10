@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="W4PLEGO_CmsUpgrade::config_configuration"
+            title="Cms Upgrade (Configuration)"
+            module="W4PLEGO_CmsUpgrade"
+            sortOrder="100"
+            action="adminhtml/system_config/edit/section/cmsupgrade"
+            resource="W4PLEGO_CmsUpgrade::cmsupgrade"
+            parent="W4PLEGO_Base::web4pro"
+        />
+    </menu>
+</config>
