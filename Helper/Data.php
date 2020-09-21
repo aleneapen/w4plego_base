@@ -12,7 +12,7 @@ use W4PLEGO\CmsUpgrade\Model\Generator;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     const UPGRADE_SCRIPT_SETUP_DIR = 'app/cms-upgrade-data';
-
+    const IS_ENABLE = 'cmsupgrade/general/enable';
     /**
      * Reader
      *
@@ -41,7 +41,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Framework\Module\Dir\Reader $reader,
         \Magento\Framework\App\Filesystem\DirectoryList $directoryList
-    ) {
+    )
+    {
         $this->_reader = $reader;
         $this->_scopeConfig = $context->getScopeConfig();
         $this->_directoryList = $directoryList;
@@ -108,21 +109,16 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $this->getModuleSetupDataDir() . Generator::UPGRADE_FILE_NAME . '-' . $version;
     }
 
-    /**
-     * Check whether or not the module output is enabled in Configuration
-     *
-     * @param string $moduleName Full module name
-     * @return boolean
-     * use \Magento\Framework\Module\Manager::isOutputEnabled()
-     */
-    public function isModuleOutputEnabled($moduleName = null)
-    {
-        if ($moduleName === null) {
-            $moduleName = $this->_getModuleName();
-        }
 
-        return !$this->_scopeConfig->isSetFlag(
-            'advanced/modules_disable_output/' . $moduleName,
+    /**
+     *  Check whether or not the module output is enabled in Configuration
+     *
+     * @return boolean
+     */
+    public function isModuleEnabled()
+    {
+        return $this->scopeConfig->getValue(
+            self::IS_ENABLE,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }
