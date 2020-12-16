@@ -39,8 +39,9 @@ class Edit extends \Magento\Config\Block\System\Config\Edit
      */
     protected function _prepareLayout()
     {
-        if ($this->_helper->isModuleOutputEnabled()
-        ) {
+        if ($this->_helper->isModuleEnabled()
+        )
+        {
             $this->getToolbar()->addChild(
                 'generate_upgrade_script_button',
                 'Magento\Backend\Block\Widget\Button',
