@@ -7,3 +7,7 @@ CMS Upgrade. Solution architecture
 =============
 * New features:
 UPRGADE SCRIPT NAME. As a system, I want to be able to install sripts in spite of the order of the scripts in release folder
+
+1.0.1.1
+=============
+Fixing issue on generating cms blocks upgrade
