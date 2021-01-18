@@ -11,7 +11,7 @@
                         </item>
                         <item name="type" xsi:type="string">generate</item>
                         <item name="label" xsi:type="string" translate="true">Generate Upgrade Script</item>
-                        <item name="url" xsi:type="url" path="w4plegocmsupgrade/page/generate" />
+                        <item name="url" xsi:type="url" path="w4plegocmsupgrade/block/generate" />
                     </item>
                 </argument>
             </action>

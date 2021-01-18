@@ -2,7 +2,7 @@
     "name": "w4plego/cms-upgrade",
     "description": "W4PLEGO_CmsUpgrade",
     "type": "magento2-module",
-    "version": "1.0.1.0",
+    "version": "1.0.1.1",
     "autoload": {
         "files": [
             "registration.php"
