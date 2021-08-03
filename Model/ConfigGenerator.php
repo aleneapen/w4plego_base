@@ -28,7 +28,7 @@ class ConfigGenerator extends Generator
             'section' => $params['section'],
             'website' => $params['website'],
             'store' => $params['store'],
-            'groups' => $this->_getGroupsForSave($generateGroups, $params['files']),
+            'all_groups' => $this->_getGroupsForSave($generateGroups, $params['files']),
         ];
         $data['items'][] = $configData;
         $nextVersion = $this->_getNextModuleVersion();
